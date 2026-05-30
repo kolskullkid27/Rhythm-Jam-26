@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://jgkjmusecgij"]
+
+[ext_resource type="Script" uid="uid://cv1nj87v68r2" path="res://Scripts/Menus/main_menu.gd" id="1_2duqn"]
+[ext_resource type="AudioStream" uid="uid://cjydl63o03fnw" path="res://Assets/Audio/Sounds/Hover.wav" id="1_k2rk1"]
+[ext_resource type="PackedScene" uid="uid://dtjvso8iqgsl6" path="res://Scenes/Menus/setting.tscn" id="3_7qicj"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h1t34"]
+playback_mode = 1
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("1_k2rk1")
+
+[node name="MainMenu" type="Node3D" unique_id=1493326057 node_paths=PackedStringArray("hover_sound", "menu")]
+script = ExtResource("1_2duqn")
+hover_sound = NodePath("HoverSound")
+menu = NodePath("CanvasLayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2126908132]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1523414491]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -559.0
+offset_top = -257.0
+offset_right = 559.0
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=317290049]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Rhythm Game"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/VBoxContainer" unique_id=347929368]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=2092346919]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Play"
+flat = true
+
+[node name="SettingButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1444351988]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Setting"
+flat = true
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1365602969]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+flat = true
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1864514448]
+stream = SubResource("AudioStreamRandomizer_h1t34")
+
+[node name="Setting" parent="." unique_id=20660001 instance=ExtResource("3_7qicj")]
+
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/PlayButton" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/SettingButton" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

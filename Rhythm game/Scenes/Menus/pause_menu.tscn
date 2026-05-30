@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://bplu1pncqwna0"]
+
+[ext_resource type="Script" uid="uid://0v0mhcd06fhw" path="res://Scripts/Menus/pause_menu.gd" id="1_4ymgn"]
+[ext_resource type="AudioStream" uid="uid://cjydl63o03fnw" path="res://Assets/Audio/Sounds/Hover.wav" id="2_bp3lx"]
+[ext_resource type="PackedScene" uid="uid://dtjvso8iqgsl6" path="res://Scenes/Menus/setting.tscn" id="3_vbwvx"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sp7vq"]
+playback_mode = 1
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("2_bp3lx")
+
+[node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("hover_sound", "v_box_container")]
+process_mode = 3
+script = ExtResource("1_4ymgn")
+hover_sound = NodePath("HoverSound")
+v_box_container = NodePath("VBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -559.0
+offset_top = -257.0
+offset_right = 559.0
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Resume"
+flat = true
+
+[node name="SettingButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Setting"
+flat = true
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+flat = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+flat = true
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_sp7vq")
+
+[node name="Setting" parent="." instance=ExtResource("3_vbwvx")]
+
+[connection signal="mouse_entered" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/SettingButton" to="." method="_on_resume_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/SettingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MainMenuButton" to="." method="_on_resume_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_resume_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

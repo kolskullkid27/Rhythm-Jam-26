@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dbniy20ksystw"]
+
+[ext_resource type="Script" uid="uid://cl6gklj1fosqr" path="res://Scripts/Entities/music_node.gd" id="1_ssd76"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_36ke7"]
+radius = 35.0
+height = 69.109
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvio3"]
+radius = 38.078865
+
+[node name="MusicNode" type="MeshInstance2D" unique_id=1824941762]
+self_modulate = Color(0.7183567, 0.7183568, 0.7183568, 1)
+z_index = -1
+mesh = SubResource("SphereMesh_36ke7")
+script = ExtResource("1_ssd76")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=257594134]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1832495050]
+shape = SubResource("CircleShape2D_xvio3")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=24671042]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.9
+lifetime_randomness = 0.3
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector2(-200, 0)
+initial_velocity_min = 1.05
+initial_velocity_max = 95.2
+angular_velocity_min = -36.0
+angular_velocity_max = 108.0
+linear_accel_min = 25.0
+linear_accel_max = 72.5
+radial_accel_min = 7.45
+radial_accel_max = 8.15
+scale_amount_max = 4.0
+
+[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]
