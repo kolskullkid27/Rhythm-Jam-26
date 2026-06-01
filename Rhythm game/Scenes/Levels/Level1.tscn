@@ -375,6 +375,9 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_kri6y"]
 orientation = 2
 
+[sub_resource type="LabelSettings" id="LabelSettings_4d3fe"]
+font_size = 32
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kri6y"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kri6y"]
@@ -883,6 +886,30 @@ offset_bottom = 23.0
 text = "W"
 label_settings = SubResource("LabelSettings_36ke7")
 
+[node name="MissScore" type="Label" parent="2DSection/CanvasLayer" unique_id=860760835]
+offset_left = 840.0
+offset_top = 3.0
+offset_right = 944.0
+offset_bottom = 49.0
+text = "M: 16"
+label_settings = SubResource("LabelSettings_4d3fe")
+
+[node name="GoodScore" type="Label" parent="2DSection/CanvasLayer" unique_id=1035469311]
+offset_left = 952.0
+offset_top = 3.0
+offset_right = 1056.0
+offset_bottom = 49.0
+text = "G: 16"
+label_settings = SubResource("LabelSettings_4d3fe")
+
+[node name="GoodScore2" type="Label" parent="2DSection/CanvasLayer" unique_id=1901869238]
+offset_left = 1050.0
+offset_top = 3.0
+offset_right = 1154.0
+offset_bottom = 49.0
+text = "P: 16"
+label_settings = SubResource("LabelSettings_4d3fe")
+
 [node name="3DSection" type="Node3D" parent="." unique_id=1402797481]
 
 [node name="Body" type="Node3D" parent="3DSection" unique_id=1042965553]
@@ -903,7 +930,7 @@ mesh = SubResource("BoxMesh_kri6y")
 skeleton = NodePath("../../../PivotPoint/Camera3D")
 
 [node name="RLeg" type="MeshInstance3D" parent="3DSection/Body" unique_id=2025966213]
-transform = Transform3D(0.20462573, -0.0072011724, 0.0028631692, 0.0030066154, 0.49638924, -0.0018637333, -0.0034058804, 0.005551044, 0.17037432, -0.522346, -0.3541923, -0.03931567)
+transform = Transform3D(0.20462573, -0.007201173, 0.0028631692, 0.0030066154, 0.49638927, -0.0018637333, -0.0034058804, 0.0055510444, 0.17037432, -0.522346, -0.3541923, -0.03931567)
 mesh = SubResource("BoxMesh_kri6y")
 skeleton = NodePath("../../PivotPoint/Camera3D")
 
@@ -913,7 +940,7 @@ mesh = SubResource("BoxMesh_kri6y")
 skeleton = NodePath("../../../PivotPoint/Camera3D")
 
 [node name="LLeg" type="MeshInstance3D" parent="3DSection/Body" unique_id=1578247373]
-transform = Transform3D(0.20462576, -0.007201174, 0.0028631694, 0.003006616, 0.49638933, -0.0018637335, -0.0034058809, 0.005551045, 0.17037433, -0.522346, -0.3541923, -0.27526206)
+transform = Transform3D(0.20462576, -0.0072011743, 0.0028631694, 0.003006616, 0.49638936, -0.0018637335, -0.0034058809, 0.0055510453, 0.17037433, -0.522346, -0.3541923, -0.27526206)
 mesh = SubResource("BoxMesh_kri6y")
 skeleton = NodePath("../../PivotPoint/Camera3D")
 
