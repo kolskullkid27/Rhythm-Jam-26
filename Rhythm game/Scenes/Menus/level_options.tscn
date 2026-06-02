@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://csympbwfsogkk"]
+
+[ext_resource type="Script" uid="uid://bsm0dyopam5ml" path="res://Scripts/Menus/level_options.gd" id="1_e3crp"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_penys"]
+size = Vector2(300, 450)
+orientation = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aur2u"]
+size = Vector2(320, 470)
+orientation = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_5wi6m"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_chkef"]
+font_size = 28
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelOptions" type="Node2D" unique_id=1635671724]
+script = ExtResource("1_e3crp")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1381353683]
+position = Vector2(580.00006, 332.00003)
+mesh = SubResource("PlaneMesh_penys")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="MeshInstance2D" unique_id=1994987035]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+mesh = SubResource("PlaneMesh_aur2u")
+
+[node name="TitleLabel" type="Label" parent="MeshInstance2D" unique_id=121756149]
+offset_left = -38.00006
+offset_top = -197.00003
+offset_right = 28.999939
+offset_bottom = -152.00003
+text = "Title"
+label_settings = SubResource("LabelSettings_5wi6m")
+
+[node name="BPMLabel" type="Label" parent="MeshInstance2D" unique_id=433752224]
+offset_left = -60.00006
+offset_top = -117.00003
+offset_right = 63.99994
+offset_bottom = -72.00003
+text = "BPM: 90"
+label_settings = SubResource("LabelSettings_5wi6m")
+
+[node name="CreditLabel" type="Label" parent="MeshInstance2D" unique_id=150389130]
+offset_left = -125.00006
+offset_top = 169.99997
+offset_right = 125.99994
+offset_bottom = 214.99997
+text = "Made By Someone"
+label_settings = SubResource("LabelSettings_chkef")
+horizontal_alignment = 1

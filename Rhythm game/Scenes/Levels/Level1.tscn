@@ -907,7 +907,7 @@ offset_left = 1050.0
 offset_top = 3.0
 offset_right = 1154.0
 offset_bottom = 49.0
-text = "P: 16"
+text = "P: 69"
 label_settings = SubResource("LabelSettings_4d3fe")
 
 [node name="3DSection" type="Node3D" parent="." unique_id=1402797481]
