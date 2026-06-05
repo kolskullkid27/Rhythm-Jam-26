@@ -2,6 +2,8 @@ extends MeshInstance2D
 
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 
+@export var long_note = false
+
 const SPEED = 1000
 
 var ot = false

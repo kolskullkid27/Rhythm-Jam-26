@@ -14,6 +14,3 @@ func _ready() -> void:
 	title_label.text = title
 	bpm_label.text = "BPM: " + Bpm
 	credit_label.text = "Made by " + credit
-
-func _process(_delta: float) -> void:
-	pass
