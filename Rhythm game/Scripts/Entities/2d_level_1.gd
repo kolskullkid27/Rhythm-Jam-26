@@ -9,7 +9,7 @@ extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
-@export var music_note : PackedScene
+
 
 var ended = false
 
@@ -36,7 +36,7 @@ func _process(_delta: float) -> void:
 		get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 	
 	good_score.text = "Score: " + str(Autoloader.score)
-	print(audio_stream_player.get_playback_position())
+	
 	# Spawns notes
 	if audio_stream_player.get_playback_position() >= float(song_text.substr(3, 10)) - .75 and ended == false:
 		spawn_note()
@@ -50,6 +50,7 @@ func _process(_delta: float) -> void:
 
 func spawn_note():
 	# Spawns the type of note
+	var music_note = preload("uid://dbniy20ksystw")
 	var music_note_instantiate = music_note.instantiate()
 	if song_text[0] == "w":
 		music_note_instantiate.global_position = Vector2(1200, 226)
@@ -65,13 +66,14 @@ func spawn_note():
 	#elif song_text[0] == "d":
 		#music_note_instantiate.global_position = Vector2(1200, 440)
 	
-	canvas_layer.add_child(music_note_instantiate)
+	add_child(music_note_instantiate)
 	
 
 
 func _on_timer_timeout() -> void:
-	if end_time > audio_stream_player.get_playback_position():
-		var music_note_instantiate = music_note.instantiate()
-		music_note_instantiate.global_position = Vector2(1200, 226)
-		music_note_instantiate.long_note = true
-		canvas_layer.add_child(music_note_instantiate)
+	pass
+	#if end_time > audio_stream_player.get_playback_position():
+		#var music_note_instantiate = music_note.instantiate()
+		#music_note_instantiate.global_position = Vector2(1200, 226)
+		#music_note_instantiate.long_note = true
+		#canvas_layer.add_child(music_note_instantiate)

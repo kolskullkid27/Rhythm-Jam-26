@@ -12,6 +12,7 @@ const SPEED = 1000
 var ot = false
 
 func _ready() -> void:
+	print("here")
 	if randi_range(1, 3) == 1:
 		lil_beat_01.visible = true
 	elif randi_range(1, 2) == 1:

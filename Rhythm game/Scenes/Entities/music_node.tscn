@@ -14,7 +14,7 @@ radius = 38.078865
 
 [node name="MusicNode" type="MeshInstance2D" unique_id=1824941762]
 self_modulate = Color(0.7176471, 0.7176471, 0.7176471, 0)
-z_index = -1
+z_index = 2
 mesh = SubResource("SphereMesh_36ke7")
 script = ExtResource("1_ssd76")
 

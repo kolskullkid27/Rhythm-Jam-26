@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://chx2jrplwo7ft"]
 
 [ext_resource type="Script" uid="uid://r8caqy2kd37d" path="res://Scripts/Entities/2d_level_1.gd" id="1_63sq5"]
-[ext_resource type="PackedScene" uid="uid://dbniy20ksystw" path="res://Scenes/Entities/music_node.tscn" id="2_wxwso"]
-[ext_resource type="VideoStream" uid="uid://x6m1xptlp4m3" path="res://Assets/Art/background.ogv" id="3_07tdg"]
 [ext_resource type="Texture2D" uid="uid://d4l80y5ik6mcm" path="res://Assets/Art/Animations/2drun010001-Sheet-export+Alpha.png" id="4_e6g0j"]
 [ext_resource type="AudioStream" uid="uid://ccu11q1k0mimf" path="res://Assets/Audio/Music/ToBeSomething.mp3" id="5_e6g0j"]
 [ext_resource type="Texture2D" uid="uid://dgqiw4tpbkgip" path="res://Assets/Art/Animations/3druncycle_010001-Sheet-export.png" id="5_gi78s"]
@@ -12,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bqoxxk5dnjd73" path="res://Assets/Art/LilBeat_01.png" id="8_e6g0j"]
 [ext_resource type="Texture2D" uid="uid://g403rfvgdldw" path="res://Assets/Art/LilBeat_03.png" id="8_wxwso"]
 [ext_resource type="Texture2D" uid="uid://dosg8ovmdawhi" path="res://Assets/Art/LilBeat_02.png" id="9_gi78s"]
+[ext_resource type="Texture2D" uid="uid://c2wy5lxx62l8r" path="res://Assets/Art/Screenshot 2026-06-06 041542.png" id="11_e6g0j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8h4de"]
 atlas = ExtResource("4_e6g0j")
@@ -495,15 +494,12 @@ _data = {
 size = Vector2(20, 20)
 orientation = 2
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_kri6y"]
-orientation = 2
-
 [sub_resource type="SphereMesh" id="SphereMesh_36ke7"]
 radius = 35.0
 height = 69.109
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_riv1q"]
-radius = 51.009804
+radius = 74.00676
 
 [sub_resource type="LabelSettings" id="LabelSettings_36ke7"]
 font_size = 32
@@ -563,17 +559,6 @@ animations = [{
 
 [node name="2DSection" type="Node2D" unique_id=1239729349]
 script = ExtResource("1_63sq5")
-music_note = ExtResource("2_wxwso")
-
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2103539504]
-z_index = -5
-offset_right = 1920.0
-offset_bottom = 1080.0
-scale = Vector2(0.6, 0.6)
-stream = ExtResource("3_07tdg")
-speed_scale = 0.5
-autoplay = true
-loop = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=373515631]
 position = Vector2(373, 412)
@@ -640,13 +625,6 @@ autoplay = true
 [node name="PauseMenu" parent="." unique_id=1100086192 instance=ExtResource("6_ynqd1")]
 visible = false
 
-[node name="BackGround" type="MeshInstance2D" parent="." unique_id=2025224355]
-self_modulate = Color(0, 0, 0.24293645, 1)
-z_index = -6
-position = Vector2(564, 322.99997)
-scale = Vector2(690, 398)
-mesh = SubResource("PlaneMesh_kri6y")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1975740600]
 
 [node name="WKey" type="MeshInstance2D" parent="CanvasLayer" unique_id=1324004278]
@@ -660,7 +638,7 @@ which_key = "up"
 [node name="Area2D" type="Area2D" parent="CanvasLayer/WKey" unique_id=522737662]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/WKey/Area2D" unique_id=1693547328]
-position = Vector2(-13, 0)
+position = Vector2(-11, 0)
 shape = SubResource("CircleShape2D_riv1q")
 
 [node name="Label" type="Label" parent="CanvasLayer/WKey" unique_id=348943232]
@@ -673,7 +651,7 @@ text = "W"
 label_settings = SubResource("LabelSettings_36ke7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/WKey" unique_id=1690402059]
-position = Vector2(3, 74)
+position = Vector2(-7, 68)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ynqd1")
 autoplay = "default"
@@ -711,10 +689,18 @@ autostart = true
 [node name="HeartAnimation" type="AnimatedSprite2D" parent="." unique_id=1884949659]
 unique_name_in_owner = true
 z_index = -4
-position = Vector2(506, 332)
+position = Vector2(497.99997, 319)
 scale = Vector2(0.85, 0.723)
 sprite_frames = SubResource("SpriteFrames_8fhce")
 frame = 1
 frame_progress = 1.0
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1042601677]
+
+[node name="Screenshot20260606041542" type="Sprite2D" parent="." unique_id=175633863]
+z_index = -5
+position = Vector2(570, 313)
+scale = Vector2(1.457249, 1.4657837)
+texture = ExtResource("11_e6g0j")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
