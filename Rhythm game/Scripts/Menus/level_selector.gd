@@ -12,7 +12,7 @@ func _ready() -> void:
 	level_amount = levels.get_child_count()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("space"):
+	if Input.is_action_just_pressed("space") and visible == true:
 		if levels.get_child(level_on - 1).level != null:
 			get_tree().change_scene_to_packed(levels.get_child(level_on - 1).level)
 		else:

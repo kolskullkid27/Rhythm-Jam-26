@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://dbniy20ksystw"]
 
 [ext_resource type="Script" uid="uid://cl6gklj1fosqr" path="res://Scripts/Entities/music_node.gd" id="1_ssd76"]
+[ext_resource type="Texture2D" uid="uid://bqoxxk5dnjd73" path="res://Assets/Art/LilBeat_01.png" id="2_l8eat"]
+[ext_resource type="Texture2D" uid="uid://dosg8ovmdawhi" path="res://Assets/Art/LilBeat_02.png" id="3_v7koo"]
+[ext_resource type="Texture2D" uid="uid://g403rfvgdldw" path="res://Assets/Art/LilBeat_03.png" id="4_l7ksv"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_36ke7"]
 radius = 35.0
@@ -10,7 +13,7 @@ height = 69.109
 radius = 38.078865
 
 [node name="MusicNode" type="MeshInstance2D" unique_id=1824941762]
-self_modulate = Color(0.7183567, 0.7183568, 0.7183568, 1)
+self_modulate = Color(0.7176471, 0.7176471, 0.7176471, 0)
 z_index = -1
 mesh = SubResource("SphereMesh_36ke7")
 script = ExtResource("1_ssd76")
@@ -39,5 +42,23 @@ linear_accel_max = 72.5
 radial_accel_min = 7.45
 radial_accel_max = 8.15
 scale_amount_max = 4.0
+
+[node name="LilBeat01" type="Sprite2D" parent="." unique_id=1928338049]
+visible = false
+position = Vector2(2, 47)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_l8eat")
+
+[node name="LilBeat02" type="Sprite2D" parent="." unique_id=1260578644]
+visible = false
+position = Vector2(2, 47)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_v7koo")
+
+[node name="LilBeat03" type="Sprite2D" parent="." unique_id=36523854]
+visible = false
+position = Vector2(2, 47)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_l7ksv")
 
 [connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]
