@@ -11,8 +11,9 @@ extends Node2D
 
 var ended = false
 
+
 # Songs Text File
-var song = "res://Scripts/SongData/test_song.txt"
+@export var song = "res://Scripts/SongData/ToBeSomething.txt"
 var song_file = FileAccess.open(song, FileAccess.READ)
 var song_text
 var end_time = 0
@@ -22,21 +23,20 @@ func _ready() -> void:
 	song_text = song_file.get_line()
 
 func _process(_delta: float) -> void:
-	# Changes the scene to 3D
-	#if audio_stream_player.get_playback_position() >= 20:
-		#modulate.a = 0
-		#fade_node.modulate = 0
+	
+	if audio_stream_player.get_playback_position() >= 83:
+		Autoloader.level1_score = Autoloader.score
+		ended = true
 	
 	good_score.text = "Score: " + str(Autoloader.score)
-	
+	print(audio_stream_player.get_playback_position())
 	# Spawns notes
-	if audio_stream_player.get_playback_position() >= float(song_text.substr(3, 10)) - .65 and ended == false:
+	if audio_stream_player.get_playback_position() >= float(song_text.substr(3, 10)) - .75 and ended == false:
 		spawn_note()
 		song_text = song_file.get_line()
 	
 	# End of song
 	if song_text == "End":
-		get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 		ended = true
 	
 	

@@ -22,6 +22,10 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
 		if menu_selected == 1:
 			_on_play_button_pressed()
+		elif menu_selected == 2:
+			_on_setting_button_pressed()
+		else:
+			_on_quit_button_pressed()
 	
 	if level_selector.visible == true and Input.is_action_just_pressed("paused"):
 		_on_back_button_pressed()

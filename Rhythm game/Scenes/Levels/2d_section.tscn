@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dbniy20ksystw" path="res://Scenes/Entities/music_node.tscn" id="2_wxwso"]
 [ext_resource type="VideoStream" uid="uid://x6m1xptlp4m3" path="res://Assets/Art/background.ogv" id="3_07tdg"]
 [ext_resource type="Texture2D" uid="uid://d4l80y5ik6mcm" path="res://Assets/Art/Animations/2drun010001-Sheet-export+Alpha.png" id="4_e6g0j"]
-[ext_resource type="AudioStream" uid="uid://bvs1sr0a8g07e" path="res://Assets/Audio/Music/Test.wav" id="5_gi78s"]
+[ext_resource type="AudioStream" uid="uid://ccu11q1k0mimf" path="res://Assets/Audio/Music/ToBeSomething.mp3" id="5_e6g0j"]
 [ext_resource type="PackedScene" uid="uid://bplu1pncqwna0" path="res://Scenes/Menus/pause_menu.tscn" id="6_ynqd1"]
 [ext_resource type="Script" uid="uid://cqqbibvtlrw4a" path="res://Scripts/Entities/note_trigger.gd" id="7_3lf1i"]
 [ext_resource type="Texture2D" uid="uid://cfni8wu8j5bit" path="res://Assets/Art/TArtFrameSheet_01.png" id="8_67qoc"]
@@ -559,7 +559,8 @@ scale = Vector2(0.70716256, 0.4202481)
 mesh = SubResource("PlaneMesh_kkjbe")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=510929940]
-stream = ExtResource("5_gi78s")
+stream = ExtResource("5_e6g0j")
+volume_db = -5.0
 autoplay = true
 
 [node name="PauseMenu" parent="." unique_id=1100086192 instance=ExtResource("6_ynqd1")]

@@ -7,6 +7,7 @@ var window_size = 0
 var show_settings = false
 
 var score = 0
+var level1_score = 0
 
 func _process(_delta: float) -> void:
 	

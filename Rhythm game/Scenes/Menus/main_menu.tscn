@@ -4,11 +4,13 @@
 [ext_resource type="AudioStream" uid="uid://cjydl63o03fnw" path="res://Assets/Audio/Sounds/Hover.wav" id="1_k2rk1"]
 [ext_resource type="Texture2D" uid="uid://dgqiw4tpbkgip" path="res://Assets/Art/Animations/3druncycle_010001-Sheet-export.png" id="2_4fgt5"]
 [ext_resource type="PackedScene" uid="uid://dtjvso8iqgsl6" path="res://Scenes/Menus/setting.tscn" id="3_7qicj"]
-[ext_resource type="Texture2D" uid="uid://g403rfvgdldw" path="res://Assets/Art/LilBeat_03.png" id="3_j4kqa"]
+[ext_resource type="Texture2D" uid="uid://dqenaom4o5uqm" path="res://Assets/Art/triart_24.png" id="3_anmaw"]
+[ext_resource type="Texture2D" uid="uid://dosg8ovmdawhi" path="res://Assets/Art/LilBeat_02.png" id="3_ftsii"]
 [ext_resource type="Script" uid="uid://degf0h1he7js2" path="res://Scripts/Menus/level_selector.gd" id="4_5wi6m"]
 [ext_resource type="PackedScene" uid="uid://csympbwfsogkk" path="res://Scenes/Menus/level_options.tscn" id="5_5wi6m"]
 [ext_resource type="Texture2D" uid="uid://dxr8v2pnnfrku" path="res://Assets/Art/meanu-01t.png" id="7_neey8"]
 [ext_resource type="PackedScene" uid="uid://chx2jrplwo7ft" path="res://Scenes/Levels/2d_section.tscn" id="8_j4kqa"]
+[ext_resource type="AudioStream" uid="uid://dekvkmal2c4om" path="res://Assets/Audio/Music/rustling trees.mp3" id="10_anmaw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_neey8"]
 font_size = 50
@@ -84,6 +86,44 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_anmaw"]
+resource_name = "Hover"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 25), Vector2(0, 0), Vector2(0, -25)]
+}
+
+[sub_resource type="Animation" id="Animation_ftsii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ftsii"]
+_data = {
+&"Hover": SubResource("Animation_anmaw"),
+&"RESET": SubResource("Animation_ftsii")
+}
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h1t34"]
 playback_mode = 1
 random_pitch = 1.2
@@ -122,7 +162,7 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/line_spacing = 3
 theme_override_font_sizes/font_size = 50
-text = "Rhythm Game"
+text = "Rhythm to the End"
 label_settings = SubResource("LabelSettings_neey8")
 horizontal_alignment = 1
 
@@ -157,9 +197,9 @@ offset_left = 104.0
 offset_top = 503.0
 offset_right = 249.0
 offset_bottom = 635.0
-text = "Art by: 
-Code by:
-Music by :"
+text = "Art by: KõL Skullkid/Bear
+Code by: SinsRay
+Music by : Inezgod"
 label_settings = SubResource("LabelSettings_4fgt5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Title" unique_id=1556853328]
@@ -172,7 +212,15 @@ autoplay = "default"
 position = Vector2(522, 376)
 rotation = 3.1415927
 scale = Vector2(0.1551209, 0.1551209)
-texture = ExtResource("3_j4kqa")
+texture = ExtResource("3_ftsii")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title/MenuControl" unique_id=187990574]
+libraries/ = SubResource("AnimationLibrary_ftsii")
+autoplay = &"Hover"
+
+[node name="Triart24" type="Sprite2D" parent="Title" unique_id=2118500161]
+position = Vector2(1093, 54)
+texture = ExtResource("3_anmaw")
 
 [node name="HoverSound" type="AudioStreamPlayer" parent="." unique_id=1864514448]
 stream = SubResource("AudioStreamRandomizer_h1t34")
@@ -197,8 +245,9 @@ position = Vector2(0, -50)
 
 [node name="LevelOptions" parent="LevelSelector/Levels" unique_id=1635671724 instance=ExtResource("5_5wi6m")]
 level = ExtResource("8_j4kqa")
-title = "Test"
-credit = "Sins"
+title = "To Be Something"
+Bpm = "140"
+credit = "SinsRay"
 
 [node name="LevelOptions2" parent="LevelSelector/Levels" unique_id=1572536391 instance=ExtResource("5_5wi6m")]
 position = Vector2(550, 0)
@@ -231,6 +280,11 @@ z_index = -1
 position = Vector2(576.00006, 324)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("7_neey8")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1447600728]
+stream = ExtResource("10_anmaw")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="mouse_entered" from="Title/VBoxContainer/PlayButton" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Title/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
