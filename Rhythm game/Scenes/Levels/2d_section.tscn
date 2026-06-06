@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bplu1pncqwna0" path="res://Scenes/Menus/pause_menu.tscn" id="6_ynqd1"]
 [ext_resource type="Script" uid="uid://cqqbibvtlrw4a" path="res://Scripts/Entities/note_trigger.gd" id="7_3lf1i"]
 [ext_resource type="Texture2D" uid="uid://cfni8wu8j5bit" path="res://Assets/Art/TArtFrameSheet_01.png" id="8_67qoc"]
+[ext_resource type="Texture2D" uid="uid://bqoxxk5dnjd73" path="res://Assets/Art/LilBeat_01.png" id="8_e6g0j"]
+[ext_resource type="Texture2D" uid="uid://g403rfvgdldw" path="res://Assets/Art/LilBeat_03.png" id="8_wxwso"]
+[ext_resource type="Texture2D" uid="uid://dosg8ovmdawhi" path="res://Assets/Art/LilBeat_02.png" id="9_gi78s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8h4de"]
 atlas = ExtResource("4_e6g0j")
@@ -441,6 +444,26 @@ radius = 51.009804
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ynqd1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_e6g0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gi78s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wxwso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gi78s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="LabelSettings" id="LabelSettings_4d3fe"]
 font_size = 32
 
@@ -552,6 +575,7 @@ mesh = SubResource("PlaneMesh_kri6y")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1975740600]
 
 [node name="WKey" type="MeshInstance2D" parent="CanvasLayer" unique_id=1324004278]
+self_modulate = Color(1, 1, 1, 0)
 z_index = -1
 position = Vector2(501, 226)
 mesh = SubResource("SphereMesh_36ke7")
@@ -565,6 +589,7 @@ position = Vector2(-13, 0)
 shape = SubResource("CircleShape2D_riv1q")
 
 [node name="Label" type="Label" parent="CanvasLayer/WKey" unique_id=348943232]
+visible = false
 offset_left = -15.0
 offset_top = -22.0
 offset_right = 25.0
@@ -572,7 +597,14 @@ offset_bottom = 23.0
 text = "W"
 label_settings = SubResource("LabelSettings_36ke7")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/WKey" unique_id=1690402059]
+position = Vector2(3, 74)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ynqd1")
+autoplay = "default"
+
 [node name="MissScore" type="Label" parent="CanvasLayer" unique_id=949875370]
+visible = false
 offset_left = 840.0
 offset_top = 3.0
 offset_right = 944.0
@@ -581,14 +613,15 @@ text = "M: 16"
 label_settings = SubResource("LabelSettings_4d3fe")
 
 [node name="GoodScore" type="Label" parent="CanvasLayer" unique_id=1635971713]
-offset_left = 952.0
-offset_top = 3.0
-offset_right = 1056.0
-offset_bottom = 49.0
-text = "G: 16"
+offset_left = 911.0
+offset_top = 12.0
+offset_right = 1015.0
+offset_bottom = 58.0
+text = "Score: 0"
 label_settings = SubResource("LabelSettings_4d3fe")
 
 [node name="GoodScore2" type="Label" parent="CanvasLayer" unique_id=573194704]
+visible = false
 offset_left = 1050.0
 offset_top = 3.0
 offset_right = 1154.0

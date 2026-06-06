@@ -49,6 +49,7 @@ func _on_button_mouse_entered() -> void:
 
 # Play button
 func _on_play_button_pressed() -> void:
+	await get_tree().create_timer(.1).timeout
 	level_selector.visible = true
 
 

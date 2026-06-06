@@ -4,6 +4,7 @@ extends Node2D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var fade_node: Node2D = $AnimationPlayer/FadeNode
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var good_score: Label = $CanvasLayer/GoodScore
 
 
 @export var music_note : PackedScene
@@ -25,6 +26,8 @@ func _process(_delta: float) -> void:
 	#if audio_stream_player.get_playback_position() >= 20:
 		#modulate.a = 0
 		#fade_node.modulate = 0
+	
+	good_score.text = "Score: " + str(Autoloader.score)
 	
 	# Spawns notes
 	if audio_stream_player.get_playback_position() >= float(song_text.substr(3, 10)) - .65 and ended == false:

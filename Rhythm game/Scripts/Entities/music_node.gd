@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 func remove():
 	# Removes the note, with particle effects
 	if ot == false:
+		Autoloader.score += 10
 		lil_beat_01.visible = false
 		lil_beat_02.visible = false
 		lil_beat_03.visible = false
