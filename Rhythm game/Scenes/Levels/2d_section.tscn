@@ -5,6 +5,7 @@
 [ext_resource type="VideoStream" uid="uid://x6m1xptlp4m3" path="res://Assets/Art/background.ogv" id="3_07tdg"]
 [ext_resource type="Texture2D" uid="uid://d4l80y5ik6mcm" path="res://Assets/Art/Animations/2drun010001-Sheet-export+Alpha.png" id="4_e6g0j"]
 [ext_resource type="AudioStream" uid="uid://ccu11q1k0mimf" path="res://Assets/Audio/Music/ToBeSomething.mp3" id="5_e6g0j"]
+[ext_resource type="Texture2D" uid="uid://dgqiw4tpbkgip" path="res://Assets/Art/Animations/3druncycle_010001-Sheet-export.png" id="5_gi78s"]
 [ext_resource type="PackedScene" uid="uid://bplu1pncqwna0" path="res://Scenes/Menus/pause_menu.tscn" id="6_ynqd1"]
 [ext_resource type="Script" uid="uid://cqqbibvtlrw4a" path="res://Scripts/Entities/note_trigger.gd" id="7_3lf1i"]
 [ext_resource type="Texture2D" uid="uid://cfni8wu8j5bit" path="res://Assets/Art/TArtFrameSheet_01.png" id="8_67qoc"]
@@ -74,6 +75,70 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynqd1"]
+atlas = ExtResource("5_gi78s")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lf1i"]
+atlas = ExtResource("5_gi78s")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67qoc"]
+atlas = ExtResource("5_gi78s")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwthg"]
+atlas = ExtResource("5_gi78s")
+region = Rect2(5760, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_521ib"]
+atlas = ExtResource("5_gi78s")
+region = Rect2(7680, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaqub"]
+atlas = ExtResource("5_gi78s")
+region = Rect2(9600, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf50c"]
+atlas = ExtResource("5_gi78s")
+region = Rect2(11520, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i87g3"]
+atlas = ExtResource("5_gi78s")
+region = Rect2(13440, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmdgt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynqd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lf1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67qoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwthg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_521ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaqub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf50c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i87g3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
 }]
 
 [sub_resource type="Animation" id="Animation_5jgm0"]
@@ -508,13 +573,22 @@ scale = Vector2(0.6, 0.6)
 stream = ExtResource("3_07tdg")
 speed_scale = 0.5
 autoplay = true
+loop = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=373515631]
 position = Vector2(373, 412)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_wiu4c")
 autoplay = "default"
-frame_progress = 0.6790975
+frame_progress = 0.2748486
+
+[node name="3DVersionAnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1628266388]
+visible = false
+position = Vector2(427, 398)
+scale = Vector2(0.45575634, 0.45575634)
+sprite_frames = SubResource("SpriteFrames_tmdgt")
+autoplay = "default"
+frame_progress = 0.9804907
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1600484118]
 libraries/ = SubResource("AnimationLibrary_5jgm0")

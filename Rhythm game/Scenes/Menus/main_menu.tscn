@@ -193,9 +193,9 @@ text = "Quit"
 flat = true
 
 [node name="Credit" type="Label" parent="Title" unique_id=1949278192]
-offset_left = 104.0
+offset_left = 13.0
 offset_top = 503.0
-offset_right = 249.0
+offset_right = 372.0
 offset_bottom = 635.0
 text = "Art by: KõL Skullkid/Bear
 Code by: SinsRay
@@ -203,7 +203,7 @@ Music by : Inezgod"
 label_settings = SubResource("LabelSettings_4fgt5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Title" unique_id=1556853328]
-position = Vector2(83, 609)
+position = Vector2(368.00003, 600)
 scale = Vector2(0.08101575, 0.08101575)
 sprite_frames = SubResource("SpriteFrames_s0gno")
 autoplay = "default"

@@ -5,6 +5,8 @@ extends Node2D
 @onready var fade_node: Node2D = $AnimationPlayer/FadeNode
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var good_score: Label = $CanvasLayer/GoodScore
+@onready var _3d_version_animated_sprite_2d_2: AnimatedSprite2D = $"3DVersionAnimatedSprite2D2"
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
 @export var music_note : PackedScene
@@ -23,10 +25,15 @@ func _ready() -> void:
 	song_text = song_file.get_line()
 
 func _process(_delta: float) -> void:
+	if Autoloader.score >= 750:
+		animated_sprite_2d.visible = false
+		_3d_version_animated_sprite_2d_2.visible = true
 	
-	if audio_stream_player.get_playback_position() >= 83:
+	
+	if audio_stream_player.get_playback_position() >= 82:
 		Autoloader.level1_score = Autoloader.score
 		ended = true
+		get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 	
 	good_score.text = "Score: " + str(Autoloader.score)
 	print(audio_stream_player.get_playback_position())

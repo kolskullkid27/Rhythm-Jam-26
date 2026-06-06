@@ -17,6 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Rhythm Game"
 run/main_scene="uid://jgkjmusecgij"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/image="uid://ds0b84em6n538"
 config/icon="res://Assets/Art/icon.svg"
 
 [audio]

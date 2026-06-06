@@ -9,6 +9,7 @@ var menu_selected = 1
 
 
 func _ready() -> void:
+	Autoloader.score = 0
 	level_selector.visible = false
 
 func _process(_delta: float) -> void:
